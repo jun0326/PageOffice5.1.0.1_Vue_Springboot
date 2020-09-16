@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文件列表</title>
+<style>
+#main{
+	width:300px;text-align:center;
+}
+ol{
+	text-align:left; border:solid 1px gray;"
+}
+ol li{
+	text-align:left; border-bottom:dotted 1px gray; height:30px; margin-top:10px;
+}
+</style>
+<!-- 引用后端项目中的pageoffice.js文件 -->
+<script type="text/javascript" src="http://172.31.10.83:8090/pageoffice.js"></script>        
+</script>
+</head>
+<body>
+	<div id="main">
+		<h3>待办文件列表</h1>
+		<ol>
+			<li>
+			<a href="javascript:POBrowser.openWindowModeless('http://172.31.10.83:8090/word','width=1200px;height=800px;');">打开Word文档</a>
+			</li>
+			<li>
+			<a href="javascript:POBrowser.openWindowModeless('http://172.31.10.83:8090/excel','width=1200px;height=800px;');">打开Excel文档</a>
+			</li>
+
+	</div>
+</body>
+</html>

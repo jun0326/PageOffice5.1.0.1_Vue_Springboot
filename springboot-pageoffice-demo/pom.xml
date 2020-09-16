@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.test</groupId>
+  <artifactId>demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>demo</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.5.RELEASE</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
+    <!--<dependency>-->
+			<!--<groupId>org.springframework</groupId>-->
+			<!--<artifactId>springloaded</artifactId>-->
+	<!--</dependency>-->
+	   
+      <!-- tomcat 的支持.-->  
+      <!--<dependency>-->
+          <!--<groupId>org.springframework.boot</groupId>-->
+          <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+          <!--<scope>provided</scope>-->
+      <!--</dependency>-->
+      <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-devtools</artifactId>
+	    <optional>true</optional>
+           <scope>true</scope>
+	  </dependency>
+	  
+	  <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-thymeleaf</artifactId>
+	   </dependency>
+	   
+	   <!-- 添加Sqlite依赖（可选：如果不需要使用印章功能的话，不需要添加此依赖 ）-->
+	   <dependency>
+		    <groupId>org.xerial</groupId>
+		    <artifactId>sqlite-jdbc</artifactId>
+		    <version>3.7.2</version>
+		</dependency>
+      <!-- 添加PageOffice依赖（必须） -->
+      <dependency>
+          <groupId>com.zhuozhengsoft</groupId>
+          <artifactId>pageoffice</artifactId>
+          <version>5.1.0.2</version>
+      </dependency>
+      <!--<dependency>-->
+          <!--<groupId>com.zhuozhengsoft</groupId>-->
+          <!--<artifactId>pageoffice</artifactId>-->
+          <!--<version>5.1.0.1</version>-->
+      <!--</dependency>-->
+  </dependencies>
+    <build>
+        <!--文件资源路径-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**.*</include>
+                    <include>**/*.*</include><!-- i18n能读取到 -->
+                    <include>**/*/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <!--maven编译插件-->
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-compiler-plugin</artifactId>-->
+            <!--<configuration>-->
+            <!--<source>1.8</source>-->
+            <!--<target>1.8</target>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--springBoot 编译插件-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.test.App</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <finalName>demo</finalName>
+    </build>
+  
+  
+<!--<build>-->
+  <!--<plugins>-->
+  	<!--<plugin>-->
+  		<!--<groupId>org.springframework.boot</groupId>-->
+ 		<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+  	<!--</plugin>-->
+  <!--</plugins>-->
+ <!--</build>-->
+</project>

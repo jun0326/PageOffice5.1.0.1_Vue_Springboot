@@ -1,0 +1,3 @@
+com\test\App.class
+com\test\config\CorsConfig.class
+com\test\controller\DemoController.class
